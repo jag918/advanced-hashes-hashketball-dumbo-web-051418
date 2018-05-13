@@ -1,4 +1,4 @@
-# Write your code here!
+require "pry"
 def game_hash
   game = {
     :home => {
@@ -141,14 +141,16 @@ def shoe_size(players_name)
 end
 
 def team_colors(team_name)
-  hash = game_hash
-  team_colors = []
-  hash.each do |team, val|
-    if val[:team_name] == team_name
-      team_colors = val[:colors]
-    end
+  # team_colors = []
+  # game_hash.each do |team, val|
+  #   if val[:team_name] == team_name
+  #     team_colors = val[:colors]
+  #   end
+  # end
+  team=game_hash.values.find do |team_hash|
+    team_hash[:team_name] == team_name
   end
-  team_colors
+  team[:colors]
 end
 
 def team_names
